@@ -54,7 +54,7 @@ module.exports = () => {
         //use css-loader
         {
           test:/\.css$/i,
-          use:['css-loader'],
+          use:['style-loader','css-loader'],
         },
         //rule for including images-wont show logo!   
         {

@@ -4,9 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
+    "start:dev": "concurrently \"npm run watch\"  \"npm run serve\"",
     "start": "",
     "server": "",
+    "watch": "webpack --watch",
+    "serve": "cd dist && npx live-server",
     "build": "webpack",
     "install": "",
     "client": ""
@@ -20,13 +22,12 @@
     "workbox-webpack-plugin": "^6.5.4"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
+    "concurrently": "^5.3.0",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^2.0.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1",
     "webpack-pwa-manifest": "^4.3.0"
   }
 }
