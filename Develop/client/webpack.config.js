@@ -1,4 +1,4 @@
-//npm i html-webpack-plugin
+//npm i html-webpack-plugin- need this to run html through webpack
 const HtmlWebpackPlugin = require('html-webpack-plugin');//keep before pwa manifest
 //npm i webpack-pwa-manifest
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -22,7 +22,11 @@ module.exports = () => {
       filename: '[name].bundle.js',
     },
     plugins: [
-      new HtmlWebpackPlugin(),//doesnt need configuration
+      //HtmlWebpackPlugin-doesnt need configuration-I do not get a dist/html file when i run npm run build
+      new HtmlWebpackPlugin({
+        title:"JATE text editor",
+        template:'./index.html'
+      }),
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
         short_name: 'Jate',
@@ -57,7 +61,15 @@ module.exports = () => {
           test:/(\.(png|jpg|jpeg|svg|gif))$/i,
           type:'asset/resource',
         },
+        //DO I NEED RULES FOR InjectManifest , WebpackPwaManifest, HtmlWebpackPlugin??????????????????
       ],
+    },
+    devServer:{
+      static: __dirname,
+      hot:true,
     },
   };
 };
+
+
+//HOT MODEL RELOADER DOESNT WORK
