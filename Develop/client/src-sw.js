@@ -5,6 +5,7 @@ const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
+
 precacheAndRoute(self.__WB_MANIFEST);
 
 const pageCache = new CacheFirst({
@@ -16,6 +17,8 @@ const pageCache = new CacheFirst({
     new ExpirationPlugin({
       maxAgeSeconds: 30 * 24 * 60 * 60,
     }),
+    //TEST GENERASTE SW//////////////
+    // new GenerateSW()
   ],
 });
 
@@ -27,7 +30,10 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching/////////////////////////////////////
-registerRoute();
+registerRoute(
+
+  //HOW DO I REGISTER A ROUTE??????????
+);
 
 //MY NOTES ARE EVERYTHING BELOW //MY NOTES ARE EVERYTHING BELOW TO THE BOTTOM1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //MY NOTES ARE EVERYTHING BELOW //MY NOTES ARE EVERYTHING BELOWTO THE BOTTOM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -5,13 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "concurrently \"npm run watch\"  \"npm run serve\"",
-    "start": "",
-    "server": "",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server node server.js --ignore client",
     "watch": "webpack --watch",
     "serve": "cd dist && npx live-server",
-    "build": "webpack",
-    "install": "",
-    "client": ""
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "",

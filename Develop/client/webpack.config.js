@@ -28,6 +28,9 @@ module.exports = () => {
         template:'./index.html'
       }),
       new WebpackPwaManifest({
+        ////?????do i need this next two lines?????????
+        // fingerprints: false,
+        // inject: true,
         name: 'Just Another Text Editor',
         short_name: 'Jate',
         description: 'My awesome Progressive Web App!',
