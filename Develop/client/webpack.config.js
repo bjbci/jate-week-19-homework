@@ -5,6 +5,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 //npm i workbox-webpack-plugin--did ths
 const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 // TODO: Add CSS loaders and babel to webpack.
@@ -52,9 +53,10 @@ module.exports = () => {
       new InjectManifest({
         // These are some common options, and not all are required.
         // Consult the docs for more info.
-        exclude: [/.../, '...'],
-        maximumFileSizeToCacheInBytes: ...,
-        swSrc: '...',
+        // exclude: [/.../, '...'],
+        // maximumFileSizeToCacheInBytes: ...,
+        swSrc: './src-sw.js', 
+        swDest:"src-sw.js"
       }),
        //npm i workbox-webpack-plugin--didnt do this yet!!!!!!!!!!!!
       //const { InjectManifest } = require('workbox-webpack-plugin')
